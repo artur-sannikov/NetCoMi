@@ -19,7 +19,7 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         SpiecEasiPkg = SpiecEasi.packages.${system}.default;
-        SPRINGPkg = SPRING.rPackages.${system}.default;
+        SPRINGPkg = SPRING.packages.${system}.default;
         NetCoMi = pkgs.rPackages.buildRPackage {
           name = "NetCoMi";
           src = self;

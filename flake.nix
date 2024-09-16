@@ -19,8 +19,8 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         SpiecEasiPkg = SpiecEasi.packages.${system}.default;
-        SPRINGPkg = SPRING.packages.${system}.default;
-        NetCoMiPkg = pkgs.rPackages.buildRPackage {
+        SPRINGPkg = SPRING.rPackages.${system}.default;
+        NetCoMi = pkgs.rPackages.buildRPackage {
           name = "NetCoMi";
           src = self;
           nativeBuildInputs =
@@ -55,9 +55,10 @@
         };
       in
       {
-        packages.default = NetCoMiPkg;
+        packages.default = NetCoMi;
         devShells.default = pkgs.mkShell {
-          buildInputs = [ NetCoMiPkg ];
+          buildInputs = [ NetCoMi ];
+          inputsFrom = pkgs.lib.singleton NetCoMi;
         };
       }
     );

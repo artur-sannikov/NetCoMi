@@ -23,31 +23,32 @@
         NetCoMi = pkgs.rPackages.buildRPackage {
           name = "NetCoMi";
           src = self;
-          nativeBuildInputs =
-            with pkgs.rPackages;
-            [
-              Biobase
-              corrplot
-              doSNOW
-              fdrtool
-              filematrix
-              foreach
-              gtools
-              huge
-              igraph
-              MASS
-              Matrix
-              mixedCCA
-              orca
-              phyloseq
-              pulsar
-              qgraph
-              RColorBrewer
-              Rdpack
-              rlang
-              vegan
-              WGCNA
-            ]
+          propagatedBuildInputs =
+            builtins.attrValues {
+              inherit (pkgs.rPackages)
+                Biobase
+                corrplot
+                doSNOW
+                fdrtool
+                filematrix
+                foreach
+                gtools
+                huge
+                igraph
+                MASS
+                Matrix
+                mixedCCA
+                orca
+                phyloseq
+                qgraph
+                pulsar
+                RColorBrewer
+                Rdpack
+                rlang
+                vegan
+                WGCNA
+                ;
+            }
             ++ [
               SpiecEasiPkg
               SPRINGPkg

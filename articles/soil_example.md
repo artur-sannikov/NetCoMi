@@ -1,0 +1,60 @@
+# Soil microbiome example
+
+``` r
+
+library(NetCoMi)
+```
+
+Here is the code for reproducing the network plot shown on the landing
+page.
+
+``` r
+
+library(phyloseq)
+data("soilrep")
+
+soil_warm_yes <- phyloseq::subset_samples(soilrep, warmed == "yes")
+soil_warm_no  <- phyloseq::subset_samples(soilrep, warmed == "no")
+
+net_seas_p <- netConstruct(soil_warm_yes, soil_warm_no,
+                           filtTax = "highestVar",
+                           filtTaxPar = list(highestVar = 500),
+                           zeroMethod = "pseudo",
+                           normMethod = "clr",
+                           measure = "pearson",
+                           verbose = 0)
+
+netprops1 <- netAnalyze(net_seas_p, clustMethod = "cluster_fast_greedy")
+
+nclust <- as.numeric(max(names(table(netprops1$clustering$clust1))))
+
+col <- c(topo.colors(nclust), rainbow(6))
+
+pdf("soilrep_networks_curved.pdf", width = 29, height = 16)
+
+plot(netprops1, 
+     sameLayout = TRUE, 
+     layoutGroup = "union", 
+     colorVec = col,
+     borderCol = "gray40", 
+     nodeSize = "degree", 
+     cexNodes = 0.9, 
+     nodeSizeSpread = 3, 
+     edgeTranspLow = 80, 
+     edgeTranspHigh = 50,
+     groupNames = c("Warming", "Non-warming"), 
+     showTitle = TRUE, 
+     cexTitle = 2.8,
+     mar = c(1,1,3,1), 
+     repulsion = 0.9, 
+     labels = FALSE, 
+     rmSingles = "inboth",
+     nodeFilter = "clustMin", 
+     nodeFilterPar = 10, 
+     nodeTransp = 50, 
+     hubTransp = 30,
+     curve = 0.2,
+     curveAll = TRUE)
+
+dev.off()
+```

@@ -1,4 +1,3 @@
-
 # NetCoMi <img src="man/figures/logo.png" align="right" height="200" />
 
 [![Lifecycle:
@@ -50,18 +49,17 @@ Please visit [netcomi.de](https://netcomi.de/) for a complete reference.
 
 ## Installation
 
-``` r
+```r
 # Required packages
 install.packages("devtools")
 install.packages("BiocManager")
 
-# Since two of NetCoMi's dependencies are only available on GitHub, 
-# it is recommended to install them first:
-devtools::install_github("zdk123/SpiecEasi")
+# Since this NetCoMi's dependency is only available on GitHub,
+# it is recommended to install it first:
 devtools::install_github("GraceYoon/SPRING")
 
 # Install NetCoMi
-devtools::install_github("stefpeschel/NetCoMi", 
+devtools::install_github("stefpeschel/NetCoMi",
                          repos = c("https://cloud.r-project.org/",
                                    BiocManager::repositories()))
 ```
@@ -73,7 +71,7 @@ Packages that are optionally required in certain settings are not
 installed together with NetCoMi. These can be installed automatically
 using:
 
-``` r
+```r
 installNetCoMiPacks()
 ```
 
@@ -85,7 +83,7 @@ installed by the respective NetCoMi function when needed.
 Thanks to [daydream-boost](https://github.com/daydream-boost), NetCoMi
 can also be installed from conda bioconda channel with
 
-``` bash
+```bash
 # You can install an individual environment firstly with
 # conda create -n NetCoMi
 # conda activate NetCoMi
@@ -97,8 +95,8 @@ conda install -c bioconda -c conda-forge r-netcomi
 Everyone who wants to use new features not included in any releases is
 invited to install NetCoMi’s development version:
 
-``` r
-devtools::install_github("stefpeschel/NetCoMi", 
+```r
+devtools::install_github("stefpeschel/NetCoMi",
                          ref = "develop",
                          repos = c("https://cloud.r-project.org/",
                                    BiocManager::repositories()))
@@ -118,7 +116,7 @@ entry-spacing="0">
 Peschel, Stefanie, Christian L Müller, Erika von Mutius, Anne-Laure
 Boulesteix, and Martin Depner. 2020. “<span class="nocase">NetCoMi:
 network construction and comparison for microbiome data in R</span>.”
-*Briefings in Bioinformatics* 22 (4): bbaa290.
+_Briefings in Bioinformatics_ 22 (4): bbaa290.
 <https://doi.org/10.1093/bib/bbaa290>.
 
 </div>

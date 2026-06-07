@@ -4,23 +4,23 @@ Title: Network Construction and Comparison for Microbiome Data
 Version: 1.2.0
 Date: 2025-03-14
 Authors@R: c(
-    person("Stefanie", "Peschel", email = "stefpeschel@gmail.com", 
+    person("Stefanie", "Peschel", email = "stefpeschel@gmail.com",
     role = c("aut", "cre"), comment = c(ORCID = "0000-0002-7936-7627")),
     person("Christian L.", "Müller", role = "ctb", comment = c(ORCID = "0000-0002-3821-7083")),
     person("Anne-Laure", "Boulesteix", role = "ctb", comment = c(ORCID = "0000-0002-2729-0947")),
     person("Erika", "von Mutius", role = "ctb", comment = c(ORCID = "0000-0002-8893-4515")),
     person("Martin", "Depner", role = "ctb")
   )
-Description: NetCoMi offers functions for constructing, analyzing, and comparing 
-    microbial association networks as well as dissimilarity-based networks for 
-    microbial compositional data. It also includes functionality for 
+Description: NetCoMi offers functions for constructing, analyzing, and comparing
+    microbial association networks as well as dissimilarity-based networks for
+    microbial compositional data. It also includes functionality for
     constructing differential association networks.
 License: GPL-3 + file LICENSE
 URL: https://netcomi.de, https://github.com/stefpeschel/NetCoMi
 BugReports: https://github.com/stefpeschel/NetCoMi/issues
 Depends: SpiecEasi (>= 1.1.1)
 biocViews:
-Imports: 
+Imports:
     Biobase,
     corrplot,
     doSNOW,
@@ -44,14 +44,14 @@ Imports:
     RColorBrewer,
     Rdpack,
     rlang,
+    SpiecEasi,
     SPRING,
     stats,
     SummarizedExperiment,
     utils,
     vegan,
     WGCNA
-Remotes: 
-    github::zdk123/SpiecEasi,
+Remotes:
     github::GraceYoon/SPRING,
     github::vmikk/metagMisc,
     github::tpq/propr,
